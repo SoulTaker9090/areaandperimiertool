@@ -15,7 +15,9 @@ def yes_no(question):
         else:
             print("please answer yes / no")
 def instructions():
-  print("***** How To Play *****\n")
+  print("***** This is how to use the program *****\n")
+  print("first please enter what what you will use")
+  print("arfter you have selected the shape please import the numbers we ask for")
 show_instructions = yes_no ("would you like to view the instructions:")
 
 if show_instructions == "yes":
