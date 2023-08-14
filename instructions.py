@@ -6,11 +6,11 @@ def yes_no(question):
         responce = input(question).lower()
 
         if responce == "yes" or responce == "y":
-            responce = "yes"
-            return responce
+          responce = "yes"
+          return responce
         elif responce == "no" or responce == "n":
-            responce = "no"
-            return responce
+          responce = "no"
+          return responce
 
         else:
             print("please answer yes / no")
