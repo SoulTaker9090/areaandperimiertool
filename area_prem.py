@@ -1,6 +1,5 @@
-def choice():
-  choice = input("what would you like to calculate area or permiter:")
-  error = ("please answer with area or perimeter")
+def choice(question):
+  error = ("please answer with area or perimeter:")
   valid = False
   while not valid:
       choice = input(question).lower()
@@ -15,5 +14,5 @@ def choice():
       else:
         print(error)
 
-option = choice("please enter area or peremeter")
+option = choice("what would you like to calculate area or permiter:")
 print(option)
