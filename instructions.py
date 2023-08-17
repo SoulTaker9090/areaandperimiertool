@@ -1,5 +1,5 @@
 import random
-
+# used when asking a yes or no question
 def yes_no(question):
     valid = False
     while not valid:
@@ -14,6 +14,7 @@ def yes_no(question):
 
         else:
             print("please answer yes / no")
+# prints instructions if user wants to view them
 def instructions():
   print("***** This is how to use the program *****\n")
   print("first please enter what what you will use")

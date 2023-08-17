@@ -1,3 +1,4 @@
+# ask you if you want to calculate the area or perimeter of "X" shape
 def choice(question):
   error = ("please answer with area or perimeter:")
   valid = False
@@ -13,6 +14,7 @@ def choice(question):
 
       else:
         print(error)
-
-option = choice("what would you like to calculate area or permiter:")
-print(option)
+valid = False
+while not valid:
+  option = choice("what would you like to calculate area or permiter:")
+  print(option)
