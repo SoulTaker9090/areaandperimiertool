@@ -20,6 +20,6 @@ def instructions():
   print("first please enter what what you will use")
   print("arfter you have selected the shape please import the numbers we ask for")
 show_instructions = yes_no ("would you like to view the instructions:")
-
+# calls on the program
 if show_instructions == "yes":
   instructions()

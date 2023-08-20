@@ -14,7 +14,5 @@ def choice(question):
 
       else:
         print(error)
-valid = False
-while not valid:
-  option = choice("what would you like to calculate area or permiter:")
-  print(option)
+option = choice("what would you like to calculate area or permiter:")
+print(option)

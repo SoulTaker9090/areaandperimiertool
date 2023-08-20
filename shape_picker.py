@@ -3,8 +3,8 @@ def shape(question):
   error = "you have not selected one of the advible shapes"
   valid = False
   while not valid:
-    shape = input(question).lower()
-  
+    
+    shape = input(question).lower().strip()
     if shape == "square" or shape == "s":
       shape = "square"
       return shape
@@ -22,6 +22,6 @@ def shape(question):
       return shape
     else:
           print(error)
-      
+# calls on the pro     
 picker = shape("please pick either square triangle or rectangle:")
 print(picker)

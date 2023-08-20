@@ -50,7 +50,6 @@ def yes_no(question):
       return responce
     elif responce == "no" or responce == "n":
       responce = "no"
-      print("please retry and dont get it wrong")
       return responce
     else:
         print(error)
@@ -59,9 +58,30 @@ def instructions():
   print("***** This is how to use the program *****\n")
   print("first please enter what what you will use")
   print("arfter you have selected the shape please import the numbers we ask for")
+# asks user to select what unit there shape is mesured in
+# asks user to select what unit there shape is mesured in
+def unit(question):
+  error = "you have not selected the advalible units:"
+  valid = False
+  while not valid:
+    unit = input(question).lower().strip()
+    if unit == "meters" or unit == "m":
+      unit = "meters"
+      return unit
+    elif unit == "centimeter" or unit == "cm":
+      unit = "centimeter"
+      return unit
+    elif unit == "millimeters" or unit == "mm":
+      unit = "millimeters"
+      return unit
+    else:
+      print(error)
 show_instructions = yes_no ("would you like to view the instructions:")
 if show_instructions == "yes":
   instructions()
+# checks what users mesurements is 
+measurement = unit("what unit would you like to use millimeters, centimeter, meters:")
+print(measurement)
 # loop to pick shape and calculation
 valid = False
 while not valid:
