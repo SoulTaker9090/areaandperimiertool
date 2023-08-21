@@ -21,7 +21,6 @@ def shape(question):
       shape = "parrallelagram"
       return shape
     else:
-          print(error)
-# calls on the pro     
+          print(error)    
 picker = shape("please pick either square triangle or rectangle:")
 print(picker)

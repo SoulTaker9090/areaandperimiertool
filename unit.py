@@ -7,8 +7,8 @@ def unit(question):
     if unit == "meters" or unit == "m":
       unit = "meters"
       return unit
-    elif unit == "centimeter" or unit == "cm":
-      unit = "centimeter"
+    elif unit == "centimeters" or unit == "cm":
+      unit = "centimeters"
       return unit
     elif unit == "millimeters" or unit == "mm":
       unit = "millimeters"

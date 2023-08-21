@@ -22,6 +22,7 @@ def shape(question):
       return shape
     else:
           print(error)
+
 # ask you if you want to calculate the area or perimeter of "X" shape
 def choice(question):
   error = ("please answer with area or perimeter:")
@@ -38,6 +39,7 @@ def choice(question):
 
     else:
       print(error)
+
 # used when asking a yes or no question
 def yes_no(question):
   error = "please enter yes or no"
@@ -53,12 +55,13 @@ def yes_no(question):
       return responce
     else:
         print(error)
+
 # prints instructions if user wants to view them
 def instructions():
   print("***** This is how to use the program *****\n")
   print("first please enter what what you will use")
   print("arfter you have selected the shape please import the numbers we ask for")
-# asks user to select what unit there shape is mesured in
+
 # asks user to select what unit there shape is mesured in
 def unit(question):
   error = "you have not selected the advalible units:"
@@ -76,6 +79,7 @@ def unit(question):
       return unit
     else:
       print(error)
+
 show_instructions = yes_no ("would you like to view the instructions:")
 if show_instructions == "yes":
   instructions()
