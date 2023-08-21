@@ -26,6 +26,7 @@ def shape(question):
 # area calculator
 def area_calculator(shape):
   error = "please enter a integer"
+  error2 = "you value has to be between 1 and 200"
   area = 0
   pi = 3.14
   valid = False
@@ -34,33 +35,56 @@ def area_calculator(shape):
       if shape == "square":
         one_side = int(input("Please input one of the sides mesurement from you square:"))
         area = area + (one_side ** 2)
-        return area
+        if one_side > 200:
+          print (error2)
+        elif one_side < 1:
+          print(error2)
+        else:
+          return area
       elif shape == "circle":
         radius = int(input("Please enter the value of your radius of your circle:"))
         area = area + (pi * radius ** 2)
-        return area
+        if radius > 200:
+          print (error2)
+        elif radius < 1:
+          print(error2)
+        else:
+          return area
       elif shape == "rectangle":
         length = int(input("Please enter the value of legth of the rectangle:"))
         width = int(input("Please enter the value of the width of the rectangle:"))
         area = area + (length * width)
-        return area
+        if length > 200:
+          print (error2)
+        elif width < 1:
+          print(error2)
+        else:
+          return area
       elif shape == "triangle":
         Tbase = int(input("Please enter the base of your trinagle:"))
         Theight = int(input("Please enter your height of the tringle:"))
         area = area + (0.5 * Tbase * Theight)
-        return area
+        if Tbase > 200:
+          print (error2)
+        elif Theight < 1:
+          print(error2)
+        else:
+          return area
       elif shape == "parrallelagram":
         Pbase = int(input("Please enter the base of the parrallelagram:"))
         Pheight = int(input("Please enter the height of your parrallelagram:"))
         area = area + ( Pbase * Pheight)
-        return area
+        if Pbase > 200:
+          print (error2)
+        elif Pheight < 1:
+          print(error2)
+        else:
+          return area
     except ValueError:
-        print(error)
-def max_vale(area_calculator):
-  
+        print(error)  
 # calls on the program
-  picker = shape("Please pick either square triangle rectangle circle or parrallelagram:")
-  print(picker)
-  area = area_calculator(picker)
-  print("{:.2f}".format(area))
+picker = shape("Please pick either square triangle rectangle circle or parrallelagram:")
+print(picker)
+area = area_calculator(picker)
+print("{:.2f}".format(area))
   
