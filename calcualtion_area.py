@@ -23,9 +23,9 @@ def shape(question):
       return shape
     else:
           print(error)
-
+# check if number is within 1 and 100
 def num_check(question):
-  error = "Please enter a number between 1 and 10"
+  error = "Please enter a number between 1 and 100"
   try:
     number=int(input(question))
     if number <1:
@@ -35,7 +35,7 @@ def num_check(question):
     else:
       return number
   except ValueError: 
-    print("Enter a number")
+    print("Enter a number: ").strip().lower()
 
 # area calculator
 def area_calculator(shape):
@@ -46,26 +46,26 @@ def area_calculator(shape):
   while not valid:
     try:
       if shape == "square":
-        one_side = num_check("Please input one of the sides mesurement from you square: ").lower().strip()
+        one_side = num_check("Please input one of the sides mesurement from you square: ").strip()
         area = one_side ** 2
         return area
       elif shape == "circle":
-        radius = num_check("Please enter the value of your radius of your circle: ").lower().strip()
+        radius = num_check("Please enter the value of your radius of your circle: ").strip()
         area = area + (pi * radius ** 2)
         return area
       elif shape == "rectangle":
-        length = num_check("Please enter the value of legth of the rectangle: ").lower().strip()
-        width = num_check("Please enter the value of the width of the rectangle: ").lower().strip()
+        length = num_check("Please enter the value of legth of the rectangle: ").strip()
+        width = num_check("Please enter the value of the width of the rectangle: ").strip()
         area = area + (length * width)
         return area
       elif shape == "triangle":
-        Tbase = num_check("Please enter the base of your trinagle: ").lower().strip()
-        Theight = num_check("Please enter your height of the tringle: ").lower().strip()
+        Tbase = num_check("Please enter the base of your trinagle: ").strip()
+        Theight = num_check("Please enter your height of the tringle: ").strip()
         area = area + (0.5 * Tbase * Theight)
         return area
       elif shape == "parrallelagram":
-        Pbase = num_check("Please enter the base of the parrallelagram: ").lower().strip()
-        Pheight = num_check("Please enter the height of your parrallelagram :").lower().strip()
+        Pbase = num_check("Please enter the base of the parrallelagram: ").strip()
+        Pheight = num_check("Please enter the height of your parrallelagram :").strip()
         area = area + ( Pbase * Pheight)
         return area
     except ValueError:

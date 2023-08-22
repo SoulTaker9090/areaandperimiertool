@@ -80,6 +80,99 @@ def unit(question):
     else:
       print(error)
 
+# area calculator
+def area_calculator(shape):
+  error = "please enter a integer"
+  area = 0
+  pi = 3.14
+  valid = False
+  while not valid:
+    try:
+      if shape == "square":
+        one_side = num_check("Please input one of the sides mesurement from you square: ".strip())
+        area = one_side ** 2
+        return area
+      elif shape == "circle":
+        radius = num_check("Please enter the value of your radius of your circle: ".strip())
+        area = area + (pi * radius ** 2)
+        return area
+      elif shape == "rectangle":
+        length = num_check("Please enter the value of legth of the rectangle: ".strip())
+        width = num_check("Please enter the value of the width of the rectangle: ".strip())
+        area = area + (length * width)
+        return area
+      elif shape == "triangle":
+        Tbase = num_check("Please enter the base of your trinagle: ".strip())
+        Theight = num_check("Please enter your height of the tringle: ".strip())
+        area = area + (0.5 * Tbase * Theight)
+        return area
+      elif shape == "parrallelagram":
+        Pbase = num_check("Please enter the base of the parrallelagram: ".strip())
+        Pheight = num_check("Please enter the height of your parrallelagram :".strip())
+        area = area + ( Pbase * Pheight)
+        return area
+    except ValueError:
+        print(error) 
+
+# perimeter calculator
+def perimeter_calculator(shape):
+  error = "please enter a integer"
+  perimeter = 0
+  pi = 3.14
+  valid = False
+  while not valid:
+    try:
+      if shape == "square":
+        list1 = []
+        for i in range(1):
+          sside = num_check("Please input one of the sides mesurement from you square: ")
+          list1.append(sside)
+        perimeter = 4 * list1[0]
+        return perimeter
+      elif shape == "circle":
+        list2 = []
+        for i in range(1):
+          radius = num_check("Please enter the value of your radius of your circle: ")
+          list2.append(radius)
+        perimeter = 2 * pi * list2[0]
+        return perimeter
+      elif shape == "rectangle":
+        list3 = []
+        for i in range(4):
+          rsides = num_check("Please each the value of each side from your rectangle: ")
+          list3.append(rsides)
+        perimeter = list3[0] + list3[1] + list3[2] + list3[3]
+        return perimeter
+      elif shape == "triangle":
+        list4 = []
+        for i in range(3):
+          Tsides = num_check("Please enter the base of your trinagle: ")
+          list4.append(Tsides)
+        perimeter = list4[0] + list4[1] + list4[2]
+        return perimeter
+      elif shape == "parrallelagram":
+        list5 = []
+        for i in range(2):
+          Psides = num_check("Please enter the base of the parrallelagram: ")
+          list5.append(Psides)
+        perimeter = (list5[0] * 2) + (list5[1] * 2)
+        return perimeter
+    except ValueError:
+        print(error)  
+# check if number is within 1 and 100
+def num_check(question):
+  error = "Please enter a number between 1 and 10"
+  try:
+    number=int(input(question))
+    if number <1:
+      print(error)
+    elif number > 100:
+      print(error)
+    else:
+      return number
+  except ValueError: 
+    print("Enter a number: ").strip().lower()
+  
 show_instructions = yes_no ("would you like to view the instructions:")
 if show_instructions == "yes":
   instructions()
@@ -93,10 +186,16 @@ while not valid:
   print("you have chosen {} as your calculation we will now chose the shape: ".format(option))
   print()
   picker = shape("please pick either square triangle or rectangle: ".lower().strip())
-  print("you have chosen {} as your shape that you want to calculate the {} for:".format(picker, option).lower().strip())
+  print(f"you have chosen {picker} as your shape that you want to calculate the {option} for:").lower().strip()
   print()
-  ans = yes_no("are you sure you want {} as you calculation and {} as you shape: ".format(option, picker))
+  ans = yes_no(f"are you sure you want {option} as you calculation and {picker} as you shape: ".strip().lower())
   if ans == "yes":
     valid = True
+    continue
   elif ans == "no":
     valid = False
+if choice == "area":
+  area = area_calculator(picker)
+  print("{:.2f}".format(area))
+elif choice == "perimeter": 
+  print("gfy")
