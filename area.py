@@ -59,8 +59,11 @@ def yes_no(question):
 # prints instructions if user wants to view them
 def instructions():
   print("***** This is how to use the program *****\n")
-  print("first please enter what what you will use")
-  print("arfter you have selected the shape please import the numbers we ask for")
+  print("first please enter what unit you will use\n")
+  print("second please enter what calculation you will use\n")
+  print("third please enter what shape you will use use\n")
+  print("arfter you have selected the shape calculation and unit please imput the numbers we ask for\n")
+  print("we might ask you for each side of a triangle please input each side value\n")
 
 # asks user to select what unit there shape is mesured in
 def unit(question):
@@ -173,11 +176,11 @@ def num_check(question):
   except ValueError: 
     print("Enter a number: ").strip().lower()
   
-show_instructions = yes_no ("would you like to view the instructions:")
+show_instructions = yes_no ("would you like to view the instructions: ").strip()
 if show_instructions == "yes":
   instructions()
 # checks what users mesurements is 
-measurement = unit("what unit would you like to use millimeters, centimeter, meters:")
+measurement = unit("what unit would you like to use millimeters, centimeter, meters: ")
 print(measurement)
 # loop to pick shape and calculation
 valid = False
@@ -186,16 +189,17 @@ while not valid:
   print("you have chosen {} as your calculation we will now chose the shape: ".format(option))
   print()
   picker = shape("please pick either square triangle or rectangle: ".lower().strip())
-  print(f"you have chosen {picker} as your shape that you want to calculate the {option} for:").lower().strip()
+  print(f"you have chosen {picker} as your shape that you want to calculate the {option} for:")
   print()
-  ans = yes_no(f"are you sure you want {option} as you calculation and {picker} as you shape: ".strip().lower())
+  ans = yes_no(f"are you sure you want {option} as your calculation and {picker} as your shape: ".strip().lower())
   if ans == "yes":
     valid = True
     continue
   elif ans == "no":
     valid = False
-if choice == "area":
-  area = area_calculator(picker)
-  print("{:.2f}".format(area))
-elif choice == "perimeter": 
-  print("gfy")
+choice == "area" or choice == "a"
+area = area_calculator(picker)
+print("{:.2f} {}**2".format(area, measurement))
+choice == "perimeter" or choice == "p"
+perimeter = perimeter_calculator(picker)
+print("{:.2f} {}".format(perimeter, measurement))
