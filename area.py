@@ -89,13 +89,13 @@ print(measurement)
 # loop to pick shape and calculation
 valid = False
 while not valid:
-  option = choice("what would you like to calculate area or permiter:").lower().strip()
-  print("you have chosen {} as your calculation we will now chose the shape:".format(option))
+  option = choice("what would you like to calculate area or permiter: ").lower().strip()
+  print("you have chosen {} as your calculation we will now chose the shape: ".format(option))
   print()
-  picker = shape("please pick either square triangle or rectangle:".lower().strip())
+  picker = shape("please pick either square triangle or rectangle: ".lower().strip())
   print("you have chosen {} as your shape that you want to calculate the {} for:".format(picker, option).lower().strip())
   print()
-  ans = yes_no("are you sure you want {} as you calculation and {} as you shape:".format(option, picker))
+  ans = yes_no("are you sure you want {} as you calculation and {} as you shape: ".format(option, picker))
   if ans == "yes":
     valid = True
   elif ans == "no":
