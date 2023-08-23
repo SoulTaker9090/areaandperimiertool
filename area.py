@@ -59,10 +59,10 @@ def yes_no(question):
 # prints instructions if user wants to view them
 def instructions():
   print("***** This is how to use the program *****\n")
-  print("first please enter what unit you will use\n")
-  print("second please enter what calculation you will use\n")
-  print("third please enter what shape you will use use\n")
-  print("arfter you have selected the shape calculation and unit please imput the numbers we ask for\n")
+  print("***** First please enter what unit you will use *****\n")
+  print("***** Second please enter what calculation you will use *****\n")
+  print("***** Third please enter what shape you will use use *****\n")
+  print("***** Arfter you have selected the shape calculation and unit please imput the numbers we ask for *****\n")
   print("we might ask you for each side of a triangle please input each side value\n")
 
 # asks user to select what unit there shape is mesured in
@@ -175,31 +175,50 @@ def num_check(question):
       return number
   except ValueError: 
     print("Enter a number: ").strip().lower()
-  
+# displays instrution if user enters yes when asked do you want to view the instructions
 show_instructions = yes_no ("would you like to view the instructions: ").strip()
 if show_instructions == "yes":
   instructions()
-# checks what users mesurements is 
-measurement = unit("what unit would you like to use millimeters, centimeter, meters: ")
-print(measurement)
 # loop to pick shape and calculation
-valid = False
-while not valid:
+exit_code = ""
+while exit_code != "xxx":
+  # checks what users mesurements is 
+  measurement = unit("what unit would you like to use millimeters, centimeter, meters: ")
+  print(measurement)
+  # picks wheater user will choose area or perimiter
   option = choice("what would you like to calculate area or permiter: ").lower().strip()
   print("you have chosen {} as your calculation we will now chose the shape: ".format(option))
   print()
-  picker = shape("please pick either square triangle or rectangle: ".lower().strip())
+  # user picks what shape they will use
+  picker = shape("Please pick either square triangle rectangle circle or parrallelagram:" .lower().strip())
   print(f"you have chosen {picker} as your shape that you want to calculate the {option} for:")
   print()
+  # ask them if what the have picked is what they want
   ans = yes_no(f"are you sure you want {option} as your calculation and {picker} as your shape: ".strip().lower())
+  # if they input yes continues into program
   if ans == "yes":
-    valid = True
-    continue
+    # if what the user choose was area it will print the calculation for area
+    if option == "area" or option == "a":
+      area = area_calculator(picker)
+      print("{:.2f} {}²".format(area, measurement))
+      again = input("do you want to do another shape: ")
+      # if input is no ends program if input is yes loops program
+      if again == "yes" or again == "y":
+        exit_code = ""
+      elif again == "no" or again == "n":
+        exit_code = "xxx"
+        print("Thank you and goodbye")
+    # if what the user choose was perimeter it will print the calculation for perimeter 
+    elif option == "perimeter" or option == "p":
+      perimeter = perimeter_calculator(picker)
+      print("{:.2f} {}".format(perimeter, measurement))
+      # if input is no ends program if input is yes loops program
+      again = input("do you want to do another shape: ")
+      if again == "yes" or again == "y":
+        exit_code = ""
+      elif again == "no" or again == "n":
+        exit_code = "xxx"
+        print("Thank you and goodbye")
+  # if user enter no loops program
   elif ans == "no":
-    valid = False
-choice == "area" or choice == "a"
-area = area_calculator(picker)
-print("{:.2f} {}**2".format(area, measurement))
-choice == "perimeter" or choice == "p"
-perimeter = perimeter_calculator(picker)
-print("{:.2f} {}".format(perimeter, measurement))
+    exit_code = ""
