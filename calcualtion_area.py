@@ -66,48 +66,70 @@ def area_calculator(shape):
       elif shape == "rectangle":
         valid2 = False
         while not valid2:
-          width = int(input("Please enter the value of the width of the rectangle: ").strip())
-          if width <1:
-            print(error2)
-            valid2 = False
-          elif width > 100:
-            print(error2)
+          valid3 = False
+          while not valid3:
+            width = int(input("Please enter the value of the width of the rectangle: ").strip())
+            if width <1:
+              print(error2)
+              valid3 = False
+            elif width > 100:
+              print(error2)
+            else:
+              valid3 = True
           length = int(input("Please enter the value of legth of the rectangle: ").strip())
           if length <1:
             print(error2)
           elif length > 100:
             print(error2)
-            valid2 = False
+            valid3 = False
           else:
             area = area + (length * width)
             return area
             continue
       elif shape == "triangle":
-        Tbase = int(input("Please enter the base of your trinagle: ").strip())
-        if Tbase <1:
-          print(error2)
-        elif Tbase > 100:
-          print(error2)
-        Theight = int(input("Please enter your height of the tringle: ").strip())
-        if Theight <1:
-          print(error2)
-        elif Theight > 100:
-          print(error2)
-        area = area + (0.5 * Tbase * Theight)
-        return area
+        valid2 = False
+        while not valid2:
+          valid3 = False
+          while not valid3:
+            Tbase = int(input("Please enter the base of your trinagle: ").strip())
+            if Tbase <1:
+              print(error2)
+              valid2 = False
+            elif Tbase > 100:
+              print(error2)
+            else:
+              valid3 = True
+          Theight = int(input("Please enter your height of the tringle: ").strip())
+          if Theight <1:
+              print(error2)
+          elif Theight > 100:
+            print(error2)
+            valid2 = False
+          else:
+            area = area + (0.5 * Tbase * Theight)
+            return area
       elif shape == "parrallelagram":
-        Pbase = int(input("Please enter the base of the parrallelagram: ").strip())
-        if Pbase <1:
-          print(error2)
-        elif Pbase > 100:
-          print(error2)
-        Pheight = int(input("Please enter the height of your parrallelagram :").strip())
-        if Pheight <1:
-          print(error2)
-        elif Pheight > 100:
-          print(error2)
-        area = area + ( Pbase * Pheight)
-        return area
+        valid2 = False
+        while not valid2:
+          valid3 = False
+          while not valid3:
+            Pbase = int(input("Please enter the base of the parrallelagram: ").strip())
+            if Pbase <1:
+              print(error2)
+              valid2 = False
+            elif Pbase > 100:
+              print(error2)
+            else: 
+              valid3 = True
+          Pheight = int(input("Please enter the height of your parrallelagram :").strip())
+          if Pheight <1:
+            print(error2)
+          elif Pheight > 100:
+            print(error2)
+            valid2 = False
+          else:
+            area = area + ( Pbase * Pheight)
+            return area
     except ValueError:
         print(error2)  
 # calls on the program
