@@ -48,8 +48,8 @@ def perimeter_calculator(shape):
       if shape == "square":
         list1 = []
         for i in range(1):
-          sside = num_check("Please input one of the sides mesurement from you square: ")
-          list1.append(sside)
+          one_side = num_check("Please input one of the sides mesurement from you square: ")
+          list1.append(one_side)
         perimeter = 4 * list1[0]
         return perimeter
       elif shape == "circle":
@@ -61,24 +61,20 @@ def perimeter_calculator(shape):
         return perimeter
       elif shape == "rectangle":
         list3 = []
-        for i in range(4):
-          rsides = num_check("Please each the value of each side from your rectangle: ")
-          list3.append(rsides)
-        perimeter = list3[0] + list3[1] + list3[2] + list3[3]
+        for i in range(2):
+          length = num_check("Please enter the value of legth of the rectangle: ")
+          list3.append(length)
+        perimeter = list3[0] + list3[0] + list3[1] + list3[1]
         return perimeter
       elif shape == "triangle":
-        list4 = []
-        for i in range(3):
-          Tsides = num_check("Please enter the base of your trinagle: ")
-          list4.append(Tsides)
-        perimeter = list4[0] + list4[1] + list4[2]
+        Tbase = num_check("Please enter the base of your trinagle: ").strip()
+        Theight = num_check("Please enter your height of the tringle: ").strip()
+        perimeter = perimeter + (0.5 * Tbase * Theight)
         return perimeter
       elif shape == "parrallelagram":
-        list5 = []
-        for i in range(2):
-          Psides = num_check("Please enter the base of the parrallelagram: ")
-          list5.append(Psides)
-        perimeter = (list5[0] * 2) + (list5[1] * 2)
+        Pbase = num_check("Please enter the base of the parrallelagram: ").strip()
+        Pheight = num_check("Please enter the height of your parrallelagram :").strip()
+        perimeter = perimeter + ( Pbase * Pheight)
         return perimeter
     except ValueError:
         print(error)  
