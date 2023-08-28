@@ -23,20 +23,6 @@ def shape(question):
       return shape
     else:
           print(error)
-# check if number is within 1 and 100
-def num_check(question):
-  error = "Please enter a number between 1 and 10"
-  try:
-    number=int(input(question))
-    if number <1:
-      print(error)
-    elif number > 100:
-      print(error)
-    else:
-      return number
-  except ValueError: 
-    print("Enter a number: ").strip().lower()
-
 # area calculator
 def area_calculator(shape):
   error2 = "please enter a iniger between 1 and 100"

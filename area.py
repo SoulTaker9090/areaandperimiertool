@@ -63,20 +63,6 @@ def instructions():
   print("***** Arfter you have selected the shape calculation and unit please imput the numbers we ask for *****\n")
   print("we might ask you for each side of a triangle please input each side value\n")
 
-# check if number is within 1 and 100
-def num_check(question):
-  error = "Please enter a number between 1 and 100"
-  try:
-    number = int(input(question))
-    if number < 1:
-      print(error)
-    elif number > 100:
-      print(error)
-    else:
-      return number
-  except ValueError: 
-    print("Must be a number").strip()
-
 # asks user to select what unit there shape is mesured in
 def unit(question):
   error = "you have not selected the advalible units:"
