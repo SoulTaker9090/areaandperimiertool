@@ -179,7 +179,7 @@ def area_calculator(shape):
 
 # perimeter calculator
 def perimeter_calculator(shape):
-  error = "please enter a integer"
+  error = "please enter a integer between 1 and 100"
   perimeter = 0
   pi = 3.14
   valid = False
@@ -187,37 +187,114 @@ def perimeter_calculator(shape):
     try:
       if shape == "square":
         list1 = []
-        for i in range(1):
-          sside = num_check("Please input one of the sides mesurement from you square between 1 and 100 : ")
-          list1.append(sside)
-        perimeter = 4 * list1[0]
-        return perimeter
+        for i in range(0):
+          one_side = int(input("Please input one of the sides mesurement from you square: ").strip())
+          if one_side < 1:
+            print(error)
+          elif one_side > 100:
+            print(error)
+          else:
+            list1.append(one_side)
+            perimeter = 4 * list1[0]
+            return perimeter
       elif shape == "circle":
         list2 = []
         for i in range(1):
-          radius = num_check("Please enter the value of your radius of your circle between 1 and 100 : ")
-          list2.append(radius)
-        perimeter = 2 * pi * list2[0]
-        return perimeter
+          radius = int(input("Please enter the value of your radius of your circle: ").strip())
+          if radius < 1:
+            print(error)
+          elif radius > 100:
+            print(error)
+          else:
+            list2.append(radius)
+            perimeter = 2 * pi * list2[0]
+            return perimeter
       elif shape == "rectangle":
         list3 = []
-        for i in range(2):
-          rsides = num_check("Please each the value of each side from your rectangle between 1 and 100 : ")
-          list3.append(rsides)
-        perimeter = list3[0] + list3[0] + list3[1] + list3[1]
+        for i in range(0,1):
+          valid = False
+          while not valid:
+            length = int(input("Please enter the value of length of the rectangle: ").strip())
+            if length < 1:
+              print(error)
+              valid = False
+            elif length > 100:
+              print(error)
+              valid = False
+            else:
+              list3.append(length)
+              width = int(input("please enter the width of your rectangle").strip()) 
+              if width < 1:
+                print(error)
+                valid = False
+              elif width > 100:
+                print(error)
+                valid = False
+              else:
+                list3.append(width)
+                valid = True
+        perimeter = (list3[0] * 2) + (list3[1] * 2)
         return perimeter
+        
       elif shape == "triangle":
         list4 = []
-        for i in range(3):
-          Tsides = num_check("Please enter the base of your trinagle between 1 and 100 : ")
-          list4.append(Tsides)
-        perimeter = list4[0] + list4[1] + list4[2]
-        return perimeter
+        for i in range(0,3):
+          valid = False
+          while not valid:
+            sidea = int(input("Please enter the side a of your trinagle: ").strip())
+            if sidea < 1:
+              print(error)
+              valid = False
+            elif sidea > 100:
+              print(error)
+              valid = False
+            else:
+              list4.append(sidea)
+              sideb = int(input("Please enter your side b of the tringle: ").strip())
+              if sideb < 1:
+                  print(error)
+                  valid = False
+              elif sideb > 100:
+                print(error)
+                valid = False
+              else:
+                list4.append(sideb)
+                sidec = int(input("Please enter your side c of the tringle: ").strip())
+                if sidec < 1:
+                  print(error)
+                  valid = False
+                elif sidec > 100:
+                  print(error)
+                  valid = False
+                else:
+                  list4.append(sidec)
+                  valid = True
+          perimeter = (list4[0] + list4[1] + list4[2])
+          return perimeter
       elif shape == "parrallelagram":
         list5 = []
-        for i in range(2):
-          Psides = num_check("Please enter the base of the parrallelagram between 1 and 100 : ")
-          list5.append(Psides)
+        for i in range(0,1):
+          valid = False
+          while not valid:
+            base = int(input("Please enter the value of base of the parrallelagram: ").strip())
+            if base < 1:
+              print(error)
+              valid = False
+            elif base > 100:
+              print(error)
+              valid = False
+            else:
+              list5.append(base)
+              side = int(input("please enter the side of your parrallelagram: ").strip()) 
+              if side < 1:
+                print(error)
+                valid = False
+              elif side > 100:
+                print(error)
+                valid = False
+              else:
+                list5.append(side)
+                valid = True
         perimeter = (list5[0] * 2) + (list5[1] * 2)
         return perimeter
     except ValueError:
@@ -247,26 +324,29 @@ while exit_code != "xxx":
   if ans == "yes":
     # if what the user choose was area it will print the calculation for area
     if option == "area" or option == "a":
+      error = "please enter yes or no"
       area = area_calculator(picker)
       print("{:.2f} {}²".format(area, measurement))
-      again = input("do you want to do another shape: ")
       # if input is no ends program if input is yes loops program
-      if again == "yes" or again == "y":
-        exit_code = ""
-      elif again == "no" or again == "n":
+      again = yes_no ("would you like to use another shape :")
+      if again == "yes":
+        exit_code = "yes"
+      elif again == "no":
         exit_code = "xxx"
         print("Thank you and goodbye")
+      else:
+        print(error)
+  if ans == "yes":
     # if what the user choose was perimeter it will print the calculation for perimeter 
-    elif option == "perimeter" or option == "p":
+    if option == "perimeter" or option == "p":
       perimeter = perimeter_calculator(picker)
       print("{:.2f} {}".format(perimeter, measurement))
       # if input is no ends program if input is yes loops program
-      again = input("do you want to do another shape: ")
-      if again == "yes" or again == "y":
+      again = yes_no ("would you like to use another shape :")
+      if again == "yes":
         exit_code = ""
-      elif again == "no" or again == "n":
+      elif again == "no":
         exit_code = "xxx"
         print("Thank you and goodbye")
-  # if user enter no loops program
-  elif ans == "no":
-    exit_code = ""
+      else:
+        print(error)

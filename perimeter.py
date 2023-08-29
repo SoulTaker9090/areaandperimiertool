@@ -34,8 +34,8 @@ def perimeter_calculator(shape):
       if shape == "square":
         
         list1 = []
-        for i in range(1):
-          one_side = int(input("Please input one of the sides mesurement from you square: "))
+        for i in range(0):
+          one_side = int(input("Please input one of the sides mesurement from you square: ").strip())
           if one_side < 1:
             print(error)
           elif one_side > 100:
@@ -47,7 +47,7 @@ def perimeter_calculator(shape):
       elif shape == "circle":
         list2 = []
         for i in range(1):
-          radius = int(input("Please enter the value of your radius of your circle: ")).strip()
+          radius = int(input("Please enter the value of your radius of your circle: ").strip())
           if radius < 1:
             print(error)
           elif radius > 100:
@@ -58,11 +58,10 @@ def perimeter_calculator(shape):
             return perimeter
       elif shape == "rectangle":
         list3 = []
-        for i in range(2):
+        for i in range(0,1):
           valid = False
           while not valid:
-            length = int(input("Please enter the value of legth of the rectangle: ")).strip()
-            list3.append(length)
+            length = int(input("Please enter the value of length of the rectangle: ").strip())
             if length < 1:
               print(error)
               valid = False
@@ -70,7 +69,17 @@ def perimeter_calculator(shape):
               print(error)
               valid = False
             else:
-              width = int(input("please enter the width of your rectangle"))
+              list3.append(length)
+              width = int(input("please enter the width of your rectangle").strip()) 
+              if width < 1:
+                print(error)
+                valid = False
+              elif width > 100:
+                print(error)
+                valid = False
+              else:
+                list3.append(width)
+                valid = True
         perimeter = (list3[0] * 2) + (list3[1] * 2)
         return perimeter
         
@@ -79,7 +88,7 @@ def perimeter_calculator(shape):
         for i in range(0,3):
           valid = False
           while not valid:
-            sidea = int(input("Please enter the side a of your trinagle: "))
+            sidea = int(input("Please enter the side a of your trinagle: ").strip())
             if sidea < 1:
               print(error)
               valid = False
@@ -88,7 +97,7 @@ def perimeter_calculator(shape):
               valid = False
             else:
               list4.append(sidea)
-              sideb = int(input("Please enter your side b of the tringle: "))
+              sideb = int(input("Please enter your side b of the tringle: ").strip())
               if sideb < 1:
                   print(error)
                   valid = False
@@ -97,7 +106,7 @@ def perimeter_calculator(shape):
                 valid = False
               else:
                 list4.append(sideb)
-                sidec = int(input("Please enter your side c of the tringle: "))
+                sidec = int(input("Please enter your side c of the tringle: ").strip())
                 if sidec < 1:
                   print(error)
                   valid = False
@@ -109,11 +118,31 @@ def perimeter_calculator(shape):
                   valid = True
           perimeter = (list4[0] + list4[1] + list4[2])
           return perimeter
-        
       elif shape == "parrallelagram":
-        Pbase = int(input("Please enter the base of the parrallelagram: ")).strip()
-        Pheight = int(input("Please enter the height of your parrallelagram :")).strip()
-        perimeter = perimeter + ( Pbase * Pheight)
+        list5 = []
+        for i in range(0,1):
+          valid = False
+          while not valid:
+            base = int(input("Please enter the value of base of the parrallelagram: ").strip())
+            if base < 1:
+              print(error)
+              valid = False
+            elif base > 100:
+              print(error)
+              valid = False
+            else:
+              list5.append(base)
+              side = int(input("please enter the side of your parrallelagram: ").strip()) 
+              if side < 1:
+                print(error)
+                valid = False
+              elif side > 100:
+                print(error)
+                valid = False
+              else:
+                list5.append(side)
+                valid = True
+        perimeter = (list5[0] * 2) + (list5[1] * 2)
         return perimeter
     except ValueError:
         print(error)  
