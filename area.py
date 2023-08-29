@@ -187,7 +187,7 @@ def perimeter_calculator(shape):
     try:
       if shape == "square":
         list1 = []
-        for i in range(0):
+        for i in range(1):
           one_side = int(input("Please input one of the sides mesurement from you square: ").strip())
           if one_side < 1:
             print(error)
@@ -223,7 +223,7 @@ def perimeter_calculator(shape):
               valid = False
             else:
               list3.append(length)
-              width = int(input("please enter the width of your rectangle").strip()) 
+              width = int(input("please enter the width of your rectangle: ").strip()) 
               if width < 1:
                 print(error)
                 valid = False
